@@ -25,7 +25,9 @@ class AppDelegate
 
   def tab_controller
     UITabBarController.alloc.initWithNibName(nil, bundle: nil).tap do |tab|
-      tab.viewControllers = [nav_controller, alphabet_controller]
+      tab.viewControllers = [
+        nav_controller, alphabet_controller, animation_controller
+      ]
     end
   end
 
@@ -38,6 +40,10 @@ class AppDelegate
 
   def alphabet_controller
     AlphabetController.alloc.initWithNibName(nil, bundle: nil)
+  end
+
+  def animation_controller
+    AnimationController.alloc.initWithNibName(nil, bundle: nil)
   end
 
   def setup_root
