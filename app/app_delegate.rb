@@ -25,15 +25,19 @@ class AppDelegate
 
   def tab_controller
     UITabBarController.alloc.initWithNibName(nil, bundle: nil).tap do |tab|
-      tab.viewControllers = [nav_controller, other_controller]
+      tab.viewControllers = [nav_controller, alphabet_controller]
     end
   end
 
-  def other_controller
-    UIViewController.alloc.initWithNibName(nil, bundle: nil).tap do |tap|
-      tap.title = "Other"
-      tap.view.backgroundColor = UIColor.purpleColor
-    end
+  # def other_controller
+  #   UIViewController.alloc.initWithNibName(nil, bundle: nil).tap do |tap|
+  #     tap.title = "Other"
+  #     tap.view.backgroundColor = UIColor.purpleColor
+  #   end
+  # end
+
+  def alphabet_controller
+    AlphabetController.alloc.initWithNibName(nil, bundle: nil)
   end
 
   def setup_root

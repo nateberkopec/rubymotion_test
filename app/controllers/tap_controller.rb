@@ -34,7 +34,7 @@ class TapController < UIViewController
 
   def generate_label
     UILabel.alloc.initWithFrame(CGRectZero).tap do |label|
-      label.text = 'RubyMotion, bitches'
+      label.text = 'Fuck Swift, use RubyMotion'
       label.sizeToFit
       label.center = CGPointMake(
         view.frame.size.width / 2,
