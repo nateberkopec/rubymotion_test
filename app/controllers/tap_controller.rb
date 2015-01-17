@@ -5,7 +5,7 @@ class TapController < UIViewController
 
     view.backgroundColor = UIColor.whiteColor
     view.addSubview generate_label
-    self.title = 'Tap'
+    self.title = "Tap (#{navigationController.viewControllers.count})"
 
     navigationItem.rightBarButtonItem = right_button
   end
@@ -13,6 +13,12 @@ class TapController < UIViewController
   def push
     new_controller = TapController.alloc.initWithNibName(nil, bundle: nil)
     navigationController.pushViewController(new_controller, animated: true)
+  end
+
+  def initWithNibName(name, bundle: bundle)
+    super
+    self.tabBarItem = tab_bar_item
+    self
   end
 
   private
@@ -27,13 +33,20 @@ class TapController < UIViewController
   end
 
   def generate_label
-    label = UILabel.alloc.initWithFrame(CGRectZero)
-    label.text = 'RubyMotion, bitches'
-    label.sizeToFit
-    label.center = CGPointMake(
-      view.frame.size.width / 2,
-      view.frame.size.height / 2
+    UILabel.alloc.initWithFrame(CGRectZero).tap do |label|
+      label.text = 'RubyMotion, bitches'
+      label.sizeToFit
+      label.center = CGPointMake(
+        view.frame.size.width / 2,
+        view.frame.size.height / 2
+      )
+    end
+  end
+
+  def tab_bar_item
+    UITabBarItem.alloc.initWithTabBarSystemItem(
+      UITabBarSystemItemFavorites,
+      tag: 1
     )
-    label
   end
 end

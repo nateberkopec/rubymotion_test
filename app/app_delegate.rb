@@ -5,13 +5,11 @@
 # goes to the background, gets a push notification, all sorts of fun stuff.
 class AppDelegate
   def application(application, didFinishLaunchingWithOptions:launchOptions)
-    rootViewController = UIViewController.alloc.init
-    rootViewController.title = 'HelloMotion'
-    rootViewController.view.backgroundColor = UIColor.whiteColor
+    setup_root
 
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
 
-    @window.rootViewController = nav_controller
+    @window.rootViewController = tab_controller
     @window.makeKeyAndVisible
 
     true
@@ -23,5 +21,24 @@ class AppDelegate
     UINavigationController.alloc.initWithRootViewController(
       TapController.alloc.initWithNibName(nil, bundle: nil)
     )
+  end
+
+  def tab_controller
+    UITabBarController.alloc.initWithNibName(nil, bundle: nil).tap do |tab|
+      tab.viewControllers = [nav_controller, other_controller]
+    end
+  end
+
+  def other_controller
+    UIViewController.alloc.initWithNibName(nil, bundle: nil).tap do |tap|
+      tap.title = "Other"
+      tap.view.backgroundColor = UIColor.purpleColor
+    end
+  end
+
+  def setup_root
+    rootViewController = UIViewController.alloc.init
+    rootViewController.title = 'HelloMotion'
+    rootViewController.view.backgroundColor = UIColor.whiteColor
   end
 end
