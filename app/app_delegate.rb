@@ -4,6 +4,7 @@
 # the "application delegate". It gets callbacks for when the app starts, ends,
 # goes to the background, gets a push notification, all sorts of fun stuff.
 class AppDelegate
+
   def application(application, didFinishLaunchingWithOptions:launchOptions)
     setup_root
 

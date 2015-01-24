@@ -1,10 +1,16 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    bubble-wrap (1.7.1)
+      bubble-wrap-http (= 1.7.1)
+    bubble-wrap-http (1.7.1)
+    kosher_bacon (0.0.2)
     rake (10.4.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  bubble-wrap
+  kosher_bacon
   rake
